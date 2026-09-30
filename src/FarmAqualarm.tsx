@@ -4,6 +4,7 @@ import {Background} from './components/Background';
 import {Header} from './components/Header';
 import {SafeZones} from './components/SafeZones';
 import {SceneZone} from './components/SceneZone';
+import {Soundtrack} from './components/Soundtrack';
 import {StatusPulse} from './components/StatusPulse';
 import {Title} from './components/Title';
 import {getLayout} from './layout';
@@ -45,7 +46,7 @@ const Pastille: React.FC<{props: FarmAqualarmProps}> = ({props}) => {
 };
 
 export const FarmAqualarm: React.FC<FarmAqualarmProps> = (props) => {
-	const {texts, colors, logo, format, showSafeZones} = props;
+	const {texts, colors, logo, format, showSafeZones, music} = props;
 	const layout = useMemo(() => getLayout(format, logo), [format, logo]);
 	const brand = useMemo(() => ({texts, colors, logo, layout}), [texts, colors, logo, layout]);
 
@@ -91,6 +92,8 @@ export const FarmAqualarm: React.FC<FarmAqualarmProps> = (props) => {
 				<Sequence name="Plan final" from={SCENES.outro.from} durationInFrames={SCENES.outro.duration}>
 					<OutroScene from={SCENES.outro.from} />
 				</Sequence>
+
+				{music.src ? <Soundtrack src={music.src} volume={music.volume} /> : null}
 
 				<Pastille props={props} />
 				{showSafeZones ? <SafeZones /> : null}

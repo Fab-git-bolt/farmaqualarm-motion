@@ -66,12 +66,19 @@ export const logoSchema = z.object({
 	contentBottom: z.number(),
 });
 
+export const musicSchema = z.object({
+	// Chemin dans /public ou URL ; chaîne vide = pas de bande-son.
+	src: z.string(),
+	volume: z.number().min(0).max(1),
+});
+
 export const farmAqualarmSchema = z.object({
 	format: formatSchema,
 	showSafeZones: z.boolean(),
 	texts: textsSchema,
 	colors: colorsSchema,
 	logo: logoSchema,
+	music: musicSchema,
 });
 
 export type FarmAqualarmProps = z.infer<typeof farmAqualarmSchema>;
@@ -141,4 +148,5 @@ export const makeDefaultProps = (format: FormatId): FarmAqualarmProps => ({
 	texts: defaultTexts,
 	colors: defaultColors,
 	logo: defaultLogo,
+	music: {src: 'musique.mp3', volume: 0.18},
 });

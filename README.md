@@ -43,6 +43,8 @@ Toutes les compositions utilisent le composant `FarmAqualarm`, paramétré par d
   Dans `cta`, la partie avant le `·` devient le bouton, le reste s'affiche en dessous.
 - `colors` : palette de la charte (fond nuit, teal vif, couleurs d'état, ambre...).
 - `logo` : image dans `public/`, couleur de fond, position de la pastille du logo (fractions de l'image).
+- `music` : bande-son (`src` dans `public/`, `volume`). Lue en boucle si plus courte que la vidéo,
+  fondu d'entrée 0,5 s et de sortie 1 s. `"src": ""` pour une version muette.
 - `showSafeZones` : affiche les repères (zone sûre en magenta, zone visuelle en cyan, zone de titre en jaune).
 
 Exemples :
@@ -69,6 +71,8 @@ sont laissés libres pour l'interface de Reels / TikTok / Shorts ; aucun texte n
 
 - `public/Farmaqualarm-lockup-fond-profond.png` : lockup horizontal sur fond profond (#0F3D57).
   Le plan final fond l'arrière-plan vers cette couleur pour que la découpe de l'image soit invisible.
+- `public/musique.mp3` : bande-son d'ambiance (volume 0,18). Purement décorative : tout le propos passe
+  par les textes incrustés, la vidéo se comprend sans le son.
 - `public/fonts/` : Poppins et JetBrains Mono (Google Fonts, licence SIL OFL, voir les fichiers `OFL-*.txt`).
   Les polices sont embarquées pour que le rendu ne dépende pas du réseau.
 
