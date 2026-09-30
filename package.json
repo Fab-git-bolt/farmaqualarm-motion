@@ -1,0 +1,28 @@
+{
+  "name": "farmaqualarm-motion",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vidéos motion FarmAqualarm (Remotion) — template paramétrable 1:1 / 4:5 / 9:16",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render FarmAqualarm-4x5 out/farmaqualarm-4x5.mp4",
+    "render:1x1": "remotion render FarmAqualarm-1x1 out/farmaqualarm-1x1.mp4",
+    "render:9x16": "remotion render FarmAqualarm-9x16 out/farmaqualarm-9x16.mp4",
+    "render:all": "npm run render && npm run render:1x1 && npm run render:9x16",
+    "still": "remotion still FarmAqualarm-4x5 out/still.png --frame=90",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.530",
+    "@remotion/fonts": "4.0.530",
+    "@remotion/zod-types": "4.0.530",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "4.0.530",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}
